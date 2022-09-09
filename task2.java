@@ -10,9 +10,7 @@ package HomeworkJava1;
 //        a 10
 //        Результат нужно сохранить в файле output.txt
 //        1000
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class task2 {
         public static void main(String[] args) throws IOException {
@@ -24,17 +22,24 @@ public class task2 {
             pow(3,0);
             a =0; b = 0;
             pow(a,b);
+
             BufferedReader fl = new BufferedReader(new FileReader("src\\HomeworkJava1\\pow.txt"));
             String [] arr = new String[3];
             int i = 0;
             while ((arr[i] = fl.readLine()) != null) {
-//                System.out.println(arr[i]);
                 arr[i] = arr[i].split(" ")[1];
-//                System.out.println(arr[i]);
+
                 i++;
             }
             fl.close();
-            pow(Integer.parseInt(arr[1]), Integer.parseInt(arr[0]));
+            a = Integer.parseInt(arr[1]);
+            b = Integer.parseInt(arr[0]);
+            pow(a,b);
+            File output = new File("output.txt");
+            FileWriter writer = new FileWriter(output);
+            writer.write(Double.toString(Math.pow(a, b)));
+            writer.flush();
+            writer.close();
         }
 
         public static void pow(int a, int b) {
