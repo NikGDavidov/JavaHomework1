@@ -16,15 +16,15 @@ import java.io.IOException;
 
 public class task2 {
         public static void main(String[] args) throws IOException {
-            double a = 3;
-            double b = 2;
-            System.out.println(pow(a,b));
+            int a = 3;
+            int b = 2;
+            pow(a,b);
             a = 2;b =-2;
-            System.out.println(pow(a,b));
-            System.out.println(pow(3,0));
+            pow(a,b);
+            pow(3,0);
             a =0; b = 0;
-            System.out.println(pow(a,b));
-            BufferedReader fl = new BufferedReader(new FileReader("pow.txt"));
+            pow(a,b);
+            BufferedReader fl = new BufferedReader(new FileReader("src\\HomeworkJava1\\pow.txt"));
             String [] arr = new String[3];
             int i = 0;
             while ((arr[i] = fl.readLine()) != null) {
@@ -34,12 +34,13 @@ public class task2 {
                 i++;
             }
             fl.close();
-            double result = pow(Double.parseDouble(arr[1]), Double.parseDouble(arr[0]));
-            System.out.println(result);
+            pow(Integer.parseInt(arr[1]), Integer.parseInt(arr[0]));
         }
 
-        public static double pow(double value, double powValue) {
-            return  Math.pow(value, powValue);
+        public static void pow(int a, int b) {
+            String res =  Double.toString(Math.pow(a, b));
+            if ((b==0) && (a==0)) res = "не определено";
+            System.out.println(a+ "**" + b + " = " + res);
         }
     }
 
